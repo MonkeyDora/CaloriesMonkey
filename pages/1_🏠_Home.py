@@ -9,7 +9,7 @@ st.set_page_config(
 configuration_page()
 
 st.title("🚀SnapMetrix")
-st.image("home.jpg", use_container_width=True)
+st.image("images/food.jpg", use_container_width=True)
 # Engaging Introduction
 st.markdown("""
 ### 🌍 **Food: The Fuel of Life**  
@@ -20,7 +20,11 @@ We live in an era where **food is abundant**, yet **nutritional knowledge is sca
 The paradox? Many of us eat too much yet **lack the nutrients our bodies need to thrive**.  
 
 ---
+---
+""")
 
+st.image("images/running.jpg", use_container_width=True)
+st.markdown("""
 ### 🔥 **Even the Smallest Activities Burn Energy**  
 Did you know that just **sitting and thinking** burns calories?  
 What about **laughing, fidgeting, or even digesting food**?  
@@ -31,7 +35,11 @@ Imagine if you could understand exactly how much energy you **use** and how much
 Would you start making **better food choices**?  
 
 ---
+---
+""")
 
+st.image("images/vision.jpg", use_container_width=True)
+st.markdown("""
 ### 🏆 **Our Vision: A Smarter, Healthier World**  
 - To **help you** understand the energy value of food and how your body uses it.  
 - To **educate** people on how to balance nutrition, so we don’t just eat—we **fuel** ourselves.  
@@ -40,6 +48,7 @@ Would you start making **better food choices**?
 We realize that many struggle with **finding the right foods** or **understanding how diet affects their health**.  
 That’s why we’re here: To provide **clear, accurate, and personalized nutrition insights**—**for everyone**.  
 
+---
 ---
 """)
 
@@ -82,6 +91,3 @@ st.success("""
 the better choices we can make—for our health, our energy, and our future.  
 Are you ready to take control of your nutrition? 🚀  
 """)
-
-
-
