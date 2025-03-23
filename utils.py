@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import time
 
 def configuration_page():
     # Custom CSS to make the text stick to the very bottom of the sidebar
@@ -75,10 +76,41 @@ def get_ai_response(user_input):
         "model": "deepseek/deepseek-r1:free",
         "messages": [{"role": "user", "content": user_input}]
     }
-    
+
     try:
+        # Send the request and get the response
         response = requests.post(url, headers=headers, json=payload)
-        data = response.json()
-        return data.get("choices", [{}])[0].get("message", {}).get("content", "⚠️ No response received.")
+
+        # Print the status code to the console for debugging
+        print(f"Status Code: {response.status_code}")
+
+        if response.status_code == 200:
+            # If the response is successful, return the message content
+            data = response.json()
+            message_content = data.get("choices", [{}])[0].get("message", {}).get("content", "⚠️ No response received.")
+            return message_content
+
+        elif response.status_code == 429:
+            # Handle rate limiting: Retry-After header suggests how long to wait
+            retry_after = response.headers.get("Retry-After")
+            if retry_after:
+                print(f"Rate limit exceeded. Retrying after {retry_after} seconds...")
+                time.sleep(int(retry_after))  # Wait for the specified duration before retrying
+                return get_ai_response(user_input)  # Retry the request after waiting
+            else:
+                print("Rate limit exceeded, but no Retry-After header provided. Retrying after 60 seconds...")
+                time.sleep(60)  # Default wait time of 60 seconds
+                return get_ai_response(user_input)  # Retry after default wait
+
+        else:
+            # For any other status code, return an error message
+            return f"Error: Received status code {response.status_code}. Response: {response.text}"
+
     except requests.exceptions.RequestException as e:
-        return f"Please Try Again"
+        # Handle any request exceptions (e.g., network errors, timeout)
+        print(f"Request Exception: {e}")
+        return f"Please try again. Error: {e}"
+
+# Example call to test
+result = get_ai_response("Tell me about Vitamin A")
+print(result)
