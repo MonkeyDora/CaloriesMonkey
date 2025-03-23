@@ -8,10 +8,8 @@ st.set_page_config(
 
 configuration_page()
 
-import streamlit as st
-
-st.title("🍽️ The Science of Nutrition & Energy in Our Lives")
-
+st.title("🚀SnapMetrix")
+st.image("home.jpg", use_container_width=True)
 # Engaging Introduction
 st.markdown("""
 ### 🌍 **Food: The Fuel of Life**  
@@ -84,7 +82,6 @@ st.success("""
 the better choices we can make—for our health, our energy, and our future.  
 Are you ready to take control of your nutrition? 🚀  
 """)
-
 
 
 
