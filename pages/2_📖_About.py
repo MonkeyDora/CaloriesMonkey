@@ -244,6 +244,16 @@ configuration_page()
 
 st.title("About SnapMetrix")
 
+st.info("""
+📸 **How to Use SnapMetrix for Nutrition Analysis:**
+1. Go to the **Analyze** page.
+2. **Take or upload a photo** of your meal.
+3. Click on **Analyze Image**.
+4. Get your results in terms of **Macronutrients (Carbs, Protein, Fat)** and **Micronutrients (Vitamins & Minerals)**.
+
+🔬 It's that simple! Let SnapMetrix break down the nutrition for you!
+""")
+
 # Dictionary of Foods Categorized by Vitamins
 vitamin_foods = {
     "Vitamin A": ["Carrots 🥕", "Sweet Potatoes 🍠", "Spinach 🌿", "Egg Yolks 🥚"],
