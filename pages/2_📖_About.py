@@ -2,29 +2,6 @@ import streamlit as st
 import time  # Simulating delay
 from utils import configuration_page, get_ai_response
 
-# Vitamin functions...
-# (All your vitaminA(), vitaminB(), etc. functions remain unchanged)
-
-st.set_page_config(
-    page_title="About",
-    page_icon="📖"
-)
-
-configuration_page()
-
-st.title("About SnapMetrix")
-
-# ✅ NEW: Add usage guide here
-st.info("""
-📸 **How to Use SnapMetrix for Nutrition Analysis:**
-1. Go to the **Analyze** page.
-2. **Take or upload a photo** of your meal.
-3. Click on **Analyze Image**.
-4. Get your results in terms of **Macronutrients (Carbs, Protein, Fat)** and **Micronutrients (Vitamins & Minerals)**.
-
-🔬 It's that simple! Let SnapMetrix break down the nutrition for you!
-""")
-
 def vitaminA():
     with st.spinner(f"🔄 Fetching explanation for Vitamin A..."):
         time.sleep(1)  # Simulating delay
@@ -304,3 +281,4 @@ for vitamin, foods in vitamin_foods.items():
 
 # # Check if Vitamin D was expanded
 # if st.session_state.expanded_vitamin == "Vitamin A":
+    
