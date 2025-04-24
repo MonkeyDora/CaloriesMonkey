@@ -1,3 +1,10 @@
+import streamlit as st
+import time  # Simulating delay
+from utils import configuration_page, get_ai_response
+
+# Vitamin functions...
+# (All your vitaminA(), vitaminB(), etc. functions remain unchanged)
+
 st.set_page_config(
     page_title="About",
     page_icon="📖"
@@ -7,8 +14,16 @@ configuration_page()
 
 st.title("About SnapMetrix")
 
-# Guide to using the Analyze page
-st.info("📸 **Tip:** To analyze the nutrients in your food, go to the **Analyze** page, take a photo of your meal, and let SnapMetrix do the magic! 🧠 It will give you insights into both **macronutrients** and **micronutrients**. 🍽️")
+# ✅ NEW: Add usage guide here
+st.info("""
+📸 **How to Use SnapMetrix for Nutrition Analysis:**
+1. Go to the **Analyze** page.
+2. **Take or upload a photo** of your meal.
+3. Click on **Analyze Image**.
+4. Get your results in terms of **Macronutrients (Carbs, Protein, Fat)** and **Micronutrients (Vitamins & Minerals)**.
+
+🔬 It's that simple! Let SnapMetrix break down the nutrition for you!
+""")
 
 # Dictionary of Foods Categorized by Vitamins
 vitamin_foods = {
